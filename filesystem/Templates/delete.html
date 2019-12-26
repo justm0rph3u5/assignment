@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Delete Reports</title>
+  </head>
+
+  <body>
+
+    <div class="content">
+
+        <h3>Report Upload</h3>
+
+        <p>Delete Reports From Here</p>
+
+
+        <div>
+          <h3>All uploaded files</h3>
+          <p>Click on the filename to delete</p>
+          <ul>
+            {% for item in contents %}
+              <li>
+                <a href="/deleter/{{ item }}"> {{ item }} </a>
+              </li>
+            {% endfor %}
+          </ul>
+
+        </div>
+
+    </div>
+  </body>
+</html>

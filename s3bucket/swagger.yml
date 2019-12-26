@@ -1,0 +1,111 @@
+swagger: '2.0'
+info:
+  description: A Simple API for s3 upload
+  title: python upload
+  version: v1
+schemes:
+  - https
+basePath: /
+
+paths:
+  /:
+    get:
+      summary: Report Listing and upload
+      parameters:
+        - in: query
+          name: format
+          type: string
+          description: 'The format to return the response in html'
+          default: html
+      responses:
+        '200':
+          description: Success response
+          schema:
+            type: object
+            properties:
+              Response:
+                type: string
+                example: "HTTP/1.0 200 OK
+Content-Type: text/html; charset=utf-8
+Content-Length: 2126
+Server: Werkzeug/0.16.0 Python/3.7.2
+Date: Mon, 23 Dec 2019 20:33:37 GMT<!DOCTYPE html>"
+
+  /upload: 
+    get:
+      summary: File Upload
+      parameters:
+        - in: query
+          name: format
+          type: string
+          description: 'The format to return the response in html'
+          default: html
+      responses:
+        '302':
+          description: Redirecting
+          schema:
+            type: object
+            properties:
+              Response:
+                type: string
+                example: "
+<title>Redirecting...</title>
+<h1>Redirecting...</h1>
+<p>You should be redirected automatically to target URL: <a href=\"/\">/</a>.  If not click the link."
+
+  /delete: 
+    get:
+      summary: Listing the files which can be deleted
+      parameters:
+        - in: query
+          name: format
+          type: string
+          description: 'The format to return the response in html'
+          default: html
+      responses:
+        '200':
+          description: Success response
+          schema:
+            type: object
+            properties:
+              Response:
+                type: string
+                example: "<!DOCTYPE html>
+<html>
+  <head>
+    <title>Delete Report</title>"
+
+  /deletefile/<filename>: 
+    get:
+      summary: File Delete
+      parameters:
+        - in: query
+          name: format
+          type: string
+          description: 'The format to return the response in json'
+          default: json
+      responses:
+        '200':
+          description: Success response
+          schema:
+            type: object
+            properties:
+              Response:
+                type: string
+                example: "output:
+                            DeleteMarker: true
+                            ResponseMetadata:
+                              HTTPHeaders:
+                                date: 'Mon, 23 Dec 2019 21:01:54 GMT'
+                                server: AmazonS3
+                                x-amz-delete-marker: 'true'
+                                x-amz-id-2: uDRvN44n8k62ddZgJTzHbepzFdF+KbAl4po53wrzWx2l3WFz1fkMYl+mCxgx4azApcw05B6W98Q=
+                                x-amz-request-id: E7703551B3BB630C
+                                x-amz-version-id: xcOJ2_VdOwwLq8trpWh8q7T1VHvcpALE
+                              HTTPStatusCode: 204
+                              HostId: uDRvN44n8k62ddZgJTzHbepzFdF+KbAl4po53wrzWx2l3WFz1fkMYl+mCxgx4azApcw05B6W98Q=
+                              RequestId: E7703551B3BB630C
+                              RetryAttempts: 1
+                            VersionId: xcOJ2_VdOwwLq8trpWh8q7T1VHvcpALE"
+                      
+

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>S3 APIs</title>
+  </head>
+  
+  <body>
+
+    <div class="content">
+
+        <h3>Report Upload API</h3>
+    
+        <p>Welcome to this Report Upload</p>
+
+    
+        <div>
+          <h3>Upload your file here:</h3>
+          <form method="POST" action="http://localhost:5000/upload" enctype=multipart/form-data>
+            <input type=file name=file>
+            <input type=submit value=submit>
+          </form>
+        </div>
+    
+    
+        <div>
+          <h3>All uploaded files</h3>
+          <p>Click on the filename to download</p>
+          <ul>
+            {% for item in contents %}
+              <li>
+                <a href="/download/{{ item.Key }}"> {{ item.Key }} </a>
+              </li>
+            {% endfor %}
+          </ul>
+    
+        </div>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Report Download</title>
+  </head>
+
+  <body>
+
+    <div class="content">
+
+        <h3>Report Upload</h3>
+
+        <p>Download Reports From Here</p>
+
+
+        <div>
+          <h3>All uploaded files</h3>
+          <p>Click on the filename to delete</p>
+          <ul>
+            {% for item in contents %}
+              <li>
+                <a href="/downloader/{{ item }}"> {{ item }} </a>
+              </li>
+            {% endfor %}
+          </ul>
+
+        </div>
+
+    </div>
+  </body>
+</html>

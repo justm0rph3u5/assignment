@@ -1,0 +1,164 @@
+swagger: '2.0'
+info:
+  description: A Simple API for s3 upload
+  title: python upload
+  version: v1
+schemes:
+  - https
+basePath: /
+
+paths:
+  /:
+    get:
+      summary: Default listing of path provided
+      parameters:
+        - in: query
+          name: format
+          type: string
+          description: 'The format to return the response in html'
+          default: html
+      responses:
+        '200':
+          description: Success response
+          schema:
+            type: object
+            properties:
+              Response:
+                type: string
+                example: "HTTP/1.0 200 OK
+Content-Type: text/html; charset=utf-8
+Content-Length: 2126
+Server: Werkzeug/0.16.0 Python/3.7.2
+Date: Mon, 23 Dec 2019 20:33:37 GMT<!DOCTYPE html>"
+
+  /upload: 
+    get:
+      summary: Upload page for UI
+      parameters:
+        - in: query
+          name: format
+          type: string
+          description: 'The format to return the response in html'
+          default: html
+      responses:
+        '200':
+          description: Response Success
+          schema:
+            type: object
+            properties:
+              Response:
+                type: string
+                example: "HTTP/1.0 200 OK"
+
+  /uploader: 
+    get:
+      summary: Upload files
+      parameters:
+        - in: query
+          name: format
+          type: string
+          description: 'The format to return the response in html'
+          default: html
+      responses:
+        '200':
+          description: Success response
+          schema:
+            type: object
+            properties:
+              Response:
+                type: string
+                example: "file uploaded successfully."
+
+  /files: 
+    get:
+      summary: File List
+      parameters:
+        - in: query
+          name: format
+          type: string
+          description: 'The format to return the response in html'
+          default: json
+      responses:
+        '200':
+          description: Success response
+          schema:
+            type: object
+            properties:
+              Response:
+                type: string
+                example: " File 1,File2"
+  /download: 
+    get:
+      summary: File Download
+      parameters:
+        - in: query
+          name: format
+          type: string
+          description: 'The format to return the response in json'
+          default: json
+      responses:
+        '200':
+          description: Success response
+          schema:
+            type: object
+            properties:
+              Response:
+                type: string
+                example: "j"                          
+  /downloader: 
+    get:
+      summary: File Download
+      parameters:
+        - in: query
+          name: format
+          type: string
+          description: 'The format to return the response in json'
+          default: json
+      responses:
+        '200':
+          description: Success response
+          schema:
+            type: object
+            properties:
+              Response:
+                type: string
+                example: "!DOCTYPE html>"   
+  /delete: 
+    get:
+      summary: File Download
+      parameters:
+        - in: query
+          name: format
+          type: string
+          description: 'The format to return the response in json'
+          default: json
+      responses:
+        '200':
+          description: Success response
+          schema:
+            type: object
+            properties:
+              Response:
+                type: string
+                example: "<html>
+  <head>
+    <title>Delete Reports</title>"    
+    
+  /deleter: 
+    get:
+      summary: File Download
+      parameters:
+        - in: query
+          name: format
+          type: string
+          description: 'The format to return the response in json'
+          default: json
+      responses:
+        '200':
+          description: Success response
+          schema:
+            type: object
+            properties:
+              Response:
+                type: string
+                example: "delete successful" 
